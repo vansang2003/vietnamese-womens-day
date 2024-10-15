@@ -483,10 +483,9 @@
 
         <text dy="-2">
             <textPath style="font-family: 'Oswald', sans-serif;" xlink:href="#partialPath" startOffset="12">
-                Nguyễn Ngọc Khánh Đoan
-                🌹....................................................................................Happy Vietnamese Women's Day 🌹
+                    Nguyễn Ngọc Khánh Đoan🌹Happy Vietnamese Women's Day🌹Nguyễn Ngọc Khánh Đoan🌹Happy Vietnamese Women's Day🌹
 
-                .............................
+               
         </text>
 
         <use id="useThePath" xlink:href="#partialPath" stroke="white" stroke-width=".5" stroke-opacity=".5" fill="none"
@@ -779,7 +778,7 @@
         text-align: center; 
         width: 200px;
         text-wrap: balance;
-        top: 70%;">Wishing Khánh Đoan a wonderful October 20th! May "my grandchildren" succeed in both your studies and job, and always stay beautiful, confident, and passionate.❤️</p>
+        top: 65%;">Wishing Khánh Đoan a wonderful October 20th! May "my grandchildren" succeed in both your studies and job, and always stay beautiful, confident, and passionate.❤️</p>
     </div>
 <!-- 
     <div>
@@ -788,6 +787,12 @@
             Your browser isn't invited for super fun audio time.
         </audio>
     </div> -->
+    <div>
+        <audio id="myAudio" class="song" preload="auto">
+            <source src="./assets/music.mp3" type="audio/mpeg">
+            Your browser isn't invited for super fun audio time.
+        </audio>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 
@@ -796,14 +801,14 @@
         (() => {
             setTimeout(() => {
                 document.querySelector("#text-click").style.display = "inherit";
-            }, 4000);
+            }, 5000);
             document.querySelector("#rose-t").onclick = function () {
-                // const audio = document.getElementById('myAudio');
+                const audio = document.getElementById('myAudio');
                
                 document.querySelector("#rose-t").style.display = "none";
                 document.querySelector("#castle").style.display = "inherit";
                 document.querySelector("#theSvg").style.display = "inherit";
-                // audio.play();
+                audio.play();
                 rid = window.requestAnimationFrame(Typing);
                 function Typing() {
                     rid = window.requestAnimationFrame(Typing);
