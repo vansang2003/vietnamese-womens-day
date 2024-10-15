@@ -25,6 +25,10 @@
             width: 50%;
             height: 50%;
         }
+        
+        .song {
+            display: none;
+        }
     </style>
 
     <!-- aa2 -->
@@ -778,12 +782,18 @@
         top: 70%;">Wishing Khánh Đoan a wonderful October 20th! May "my grandchildren" succeed in both your studies and job, and always stay beautiful, confident, and passionate.❤️</p>
     </div>
 
-
+    <div>
+        <audio class="song" controls autoplay>
+            <source src="./assets/music.mp3" type="audio/mpeg">
+            Your browser isn't invited for super fun audio time.
+        </audio>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 
     <!-- aa3 -->
     <script>
+         const audio = document.getElementById('myAudio');
 
         (() => {
             setTimeout(() => {
@@ -793,6 +803,7 @@
                 document.querySelector("#rose-t").style.display = "none";
                 document.querySelector("#castle").style.display = "inherit";
                 document.querySelector("#theSvg").style.display = "inherit"
+                audio.play();
 
                 rid = window.requestAnimationFrame(Typing);
                 function Typing() {
