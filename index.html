@@ -781,30 +781,29 @@
         text-wrap: balance;
         top: 70%;">Wishing Khánh Đoan a wonderful October 20th! May "my grandchildren" succeed in both your studies and job, and always stay beautiful, confident, and passionate.❤️</p>
     </div>
-
+<!-- 
     <div>
         <audio class="song" controls autoplay>
             <source src="./assets/music.mp3" type="audio/mpeg">
             Your browser isn't invited for super fun audio time.
         </audio>
-    </div>
+    </div> -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 
     <!-- aa3 -->
     <script>
-         const audio = document.getElementById('myAudio');
-
         (() => {
             setTimeout(() => {
                 document.querySelector("#text-click").style.display = "inherit";
             }, 4000);
             document.querySelector("#rose-t").onclick = function () {
+                // const audio = document.getElementById('myAudio');
+               
                 document.querySelector("#rose-t").style.display = "none";
                 document.querySelector("#castle").style.display = "inherit";
-                document.querySelector("#theSvg").style.display = "inherit"
-                audio.play();
-
+                document.querySelector("#theSvg").style.display = "inherit";
+                // audio.play();
                 rid = window.requestAnimationFrame(Typing);
                 function Typing() {
                     rid = window.requestAnimationFrame(Typing);
