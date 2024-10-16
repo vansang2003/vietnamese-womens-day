@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
-    <title>Quà 20/10 nè!</title>
+    <title>Quà 20/10 cho cháu nè!</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap-grid.min.css"
         integrity="sha512-JQksK36WdRekVrvdxNyV3B0Q1huqbTkIQNbz1dlcFVgNynEMRl0F8OSqOGdVppLUDIvsOejhr/W5L3G/b3J+8w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -14,11 +14,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
     <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
         .container {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 97vh;
+            /* height: 97vh; */
+            width: 100%;
+            height: 100%;
+
         }
 
         .container svg {
@@ -29,6 +40,16 @@
         .song {
             display: none;
         }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: black; }
+        }
+
     </style>
 
     <!-- aa2 -->
@@ -772,13 +793,21 @@
                                  c-16.072-12.613-41.381-26.674-72.329-23.977c-21.664,2.405-52.653,12.308-77.277,45.856c-13.392,19.922-16.495,52.272,4.132,72.986
                                  c3.371,3.385,7.075,6.243,11.008,8.573c4.885,2.894,10.125,4.964,15.515,6.228C354.624,212.802,357.947,181.899,370.903,162.627z" />
         </svg>
-        <p id="text-click" style=" display: none;   font-family: 'Oswald', sans-serif;
-        color: indianred;
-        font-size: 20px;
-        text-align: center; 
-        width: 200px;
-        text-wrap: balance;
-        top: 65%;">Wishing Khánh Đoan a wonderful October 20th! May "my grandchildren" succeed in both your studies and job, and always stay beautiful, confident, and passionate.❤️</p>
+        <div class="flex" style="display: flex; align-items: center; justify-content: center; height: 100%; width: 100%;">
+            <p id="text-click" style="
+                display: block;
+                font-family: 'Oswald', sans-serif;
+                color: indianred;
+                font-size: 20px;
+                text-align: center;
+                text-wrap: balance;
+                white-space: nowrap;
+                overflow: hidden;
+                border-right: 2px solid;
+                top: 75%;
+                ">
+            </p>
+        </div>
     </div>
 <!-- 
     <div>
@@ -798,10 +827,25 @@
 
     <!-- aa3 -->
     <script>
+
+            
+
         (() => {
             setTimeout(() => {
                 document.querySelector("#text-click").style.display = "inherit";
             }, 5000);
+            
+            const message = 'Wishing Khánh Đoan a wonderful October 20th! May "my grandchildren" succeed in both your studies and job, and always stay beautiful, confident, and passionate.❤️';
+            let i = 0;
+            function typeWriter() {
+            if (i < message.length) {
+                document.getElementById("text-click").textContent += message.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+                }
+            }
+
+            window.onload = typeWriter;
             document.querySelector("#rose-t").onclick = function () {
                 const audio = document.getElementById('myAudio');
                
