@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
     <style>
-        body, html {
+        body,html {
             height: 100%;
             margin: 0;
             display: flex;
@@ -959,9 +959,6 @@
 
     <!-- aa3 -->
     <script>
-        // Tạo hiệu ứng bong bóng
-    
-
         (() => {
             setTimeout(() => {
                 document.querySelector("#text-click").style.display = "inherit";
@@ -979,24 +976,7 @@
 
             window.onload = typeWriter;
 
-            // const colors = ['rgba(255, 182, 193, 0.8)', 'rgba(135, 206, 235, 0.8)', 'rgba(173, 255, 47, 0.8)', 'rgba(238, 130, 238, 0.8)', 'rgba(255, 165, 0, 0.8)'];
-
-            // function createBubble() {
-            // const bubble = document.createElement('div');
-            // bubble.classList.add('bubble');
-            // bubble.style.left = Math.random() * 100 + 'vw'; // Tạo vị trí ngẫu nhiên theo chiều ngang
-            // bubble.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)]; // Màu ngẫu nhiên
-
-            // document.body.appendChild(bubble);
-
-            // // Xóa bong bóng khi hoàn thành animation
-            // setTimeout(() => {
-            //     bubble.remove();
-            // }, 5000); // Thời gian animation kết thúc
-            // }
-
-            // // Tạo nhiều bong bóng mỗi 500ms
-            // setInterval(createBubble, 500);
+            
 
             document.querySelector("#rose-t").onclick = function () {
                 const audio = document.getElementById('myAudio');
@@ -1004,6 +984,8 @@
                 document.querySelector("#rose-t").style.display = "none";
                 document.querySelector("#castle").style.display = "inherit";
                 document.querySelector("#theSvg").style.display = "inherit";
+                document.querySelector("body").style.background = "#fff";
+                document.querySelector("html").style.background = "#fff";
                 audio.play();
                 rid = window.requestAnimationFrame(Typing);
                 function Typing() {
