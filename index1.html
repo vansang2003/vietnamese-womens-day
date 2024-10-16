@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,17 +19,140 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #f0f0f0;
+            background-color: #fff;
+            /* background: linear-gradient(to bottom right, #ffe3e3, #ffcccc); */
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(to bottom right, #ffe3e3, #ffcccc);
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4, #ff9a9e);
+            background-size: 400% 400%;
+            animation: backgroundAnimation 15s ease infinite;
         }
+
+        @keyframes backgroundAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
         .container {
+            z-index: 10;
             display: flex;
             justify-content: center;
             align-items: center;
             /* height: 97vh; */
-            width: 100%;
+            width: 1400px;
             height: 100%;
 
         }
+        .heart {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        bottom: 0;
+        background-color: red;
+        animation: float 5s infinite ease-in-out;
+    }
+
+    .heart::before, .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: 10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) ;
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) ;
+        opacity: 0;
+      }
+    }
+
+    /* Twinkling lights */
+    .twinkle {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 50%;
+      animation: twinkle 2s infinite ease-in-out;
+    }
+
+    @keyframes twinkle {
+      0%, 100% {
+        transform: scale(0);
+        opacity: 0;
+      }
+      50% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    /* Positioning random hearts and twinkles */
+    .heart:nth-child(1) { left: 10%; animation-delay: 0s; }
+    .heart:nth-child(2) { left: 30%; animation-delay: 1s; }
+    .heart:nth-child(3) { left: 50%; animation-delay: 2s; }
+    .heart:nth-child(4) { left: 70%; animation-delay: 3s; }
+    .heart:nth-child(5) { left: 90%; animation-delay: 4s; }
+
+    .twinkle:nth-child(6) { top: 30%; left: 15%; animation-delay: 1s; }
+    .twinkle:nth-child(7) { top: 50%; left: 35%; animation-delay: 2s; }
+    .twinkle:nth-child(8) { top: 70%; left: 60%; animation-delay: 3s; }
+    .twinkle:nth-child(9) { top: 80%; left: 80%; animation-delay: 0s; }
+
+    @keyframes sparkle {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+}
+
+    /* Hiệu ứng lấp lánh */
+    .sparkle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.7), 0 0 30px rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    animation: sparkle 2s infinite ease-in-out;
+    }
+
+    /* Positioning random sparkles */
+    .sparkle:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+    .sparkle:nth-child(2) { top: 20%; left: 40%; animation-delay: 1s; }
+    .sparkle:nth-child(3) { top: 50%; left: 20%; animation-delay: 2s; }
+    .sparkle:nth-child(4) { top: 60%; left: 70%; animation-delay: 3s; }
+    .sparkle:nth-child(5) { top: 80%; left: 90%; animation-delay: 0.5s; }
+    .sparkle:nth-child(6) { top: 30%; left: 80%; animation-delay: 1.5s; }
+
+
+
 
         .container svg {
             width: 50%;
@@ -481,6 +603,13 @@
 </head>
 
 <body>
+    <div class="sparkle"></div>
+    <div class="sparkle"></div>
+    <div class="sparkle"></div>
+    <div class="sparkle"></div>
+    <div class="sparkle"></div>
+    <div class="sparkle"></div>
+
 
     <svg style="display: none;" id="theSvg" viewBox="-120 -30 240 180" enable-background="new 0 0 174 148"
         xml:space="preserve">
@@ -808,7 +937,10 @@
                 ">
             </p>
         </div>
+       
     </div>
+    <!-- Hearts -->
+
 <!-- 
     <div>
         <audio class="song" controls autoplay>
@@ -827,8 +959,8 @@
 
     <!-- aa3 -->
     <script>
-
-            
+        // Tạo hiệu ứng bong bóng
+    
 
         (() => {
             setTimeout(() => {
@@ -846,6 +978,26 @@
             }
 
             window.onload = typeWriter;
+
+            // const colors = ['rgba(255, 182, 193, 0.8)', 'rgba(135, 206, 235, 0.8)', 'rgba(173, 255, 47, 0.8)', 'rgba(238, 130, 238, 0.8)', 'rgba(255, 165, 0, 0.8)'];
+
+            // function createBubble() {
+            // const bubble = document.createElement('div');
+            // bubble.classList.add('bubble');
+            // bubble.style.left = Math.random() * 100 + 'vw'; // Tạo vị trí ngẫu nhiên theo chiều ngang
+            // bubble.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)]; // Màu ngẫu nhiên
+
+            // document.body.appendChild(bubble);
+
+            // // Xóa bong bóng khi hoàn thành animation
+            // setTimeout(() => {
+            //     bubble.remove();
+            // }, 5000); // Thời gian animation kết thúc
+            // }
+
+            // // Tạo nhiều bong bóng mỗi 500ms
+            // setInterval(createBubble, 500);
+
             document.querySelector("#rose-t").onclick = function () {
                 const audio = document.getElementById('myAudio');
                
